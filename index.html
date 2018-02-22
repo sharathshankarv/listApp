@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html ng-app="app">
+    <head>
+        <title>To Do App</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+    </head>
+    
+<body>   
+    <div ng-controller="listCtrl as listC">
+       <div class="container" style="padding-top: 20px;">
+           <div class="input-group mb-3">
+              <input ng-model="newListItem" type="text" class="form-control" placeholder="Add to list">
+              <div class="input-group-append">
+                <button ng-click="listC.addListItem(newListItem)" class="btn btn-outline-secondary" type="button">Add</button>
+              </div>
+           </div>
+           
+           <p>Items in the List: {{listC.noOfitems}}</p> 
+            
+           <ul class="list-group">
+              <li class="list-group-item" ng-repeat="item in listC.list">                  
+                  {{item.listItem}}
+                  <i ng-click="listC.deleteListItem(item)" class="fas fa-trash float-right"></i>
+              </li>          
+           </ul>
+       </div>
+    </div>    
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.1/angular.min.js"></script>
+    <script src="scripts/main.js"></script>    
+</body>
+</html> 
