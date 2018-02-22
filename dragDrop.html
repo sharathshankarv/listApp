@@ -1,0 +1,113 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+<style>
+.cdiv{
+    width: 350px;
+    height: 70px;
+    padding: 10px;
+    border: 1px solid #aaaaaa;
+}
+    p{
+        font-size: 32px;
+        font-weight: 700;
+    }
+</style>
+<script>
+function allowDrop(ev) {
+    ev.preventDefault();
+}
+
+function drag(ev) {
+    ev.dataTransfer.setData("text", ev.target.id);
+}
+    
+function what(_this){    
+    _this.children[0].children[0].remove();
+}
+
+function drop(ev) {
+    ev.preventDefault();
+    var target = ev.target.id;
+    var data = ev.dataTransfer.getData("text");
+    ev.target.appendChild(document.getElementById(data));
+    switch(target){
+        case 'div6' : if(data == "p1")                        
+                        ev.target.lastChild.insertAdjacentHTML('beforeend', '<i class="fas fa-check"></i>');                                              
+                      else
+                        ev.target.lastChild.insertAdjacentHTML('beforeend', '<i class="fas fa-times"></i>');                      
+                      break;
+        case 'div7' : if(data == "p2")
+                        ev.target.lastChild.insertAdjacentHTML('beforeend', '<i class="fas fa-check"></i>');                                              
+                      else
+                        ev.target.lastChild.insertAdjacentHTML('beforeend', '<i class="fas fa-times"></i>');
+                      break;
+        case 'div8' : if(data == "p3")
+                        ev.target.lastChild.insertAdjacentHTML('beforeend', '<i class="fas fa-check"></i>');                                              
+                      else
+                        ev.target.lastChild.insertAdjacentHTML('beforeend', '<i class="fas fa-times"></i>');
+                      break;
+        case 'div9' : if(data == "p4")
+                        ev.target.lastChild.insertAdjacentHTML('beforeend', '<i class="fas fa-check"></i>');                                              
+                      else
+                        ev.target.lastChild.insertAdjacentHTML('beforeend', '<i class="fas fa-times"></i>');
+                      break;
+        case 'div10' : if(data == "p5")
+                        ev.target.lastChild.insertAdjacentHTML('beforeend', '<i class="fas fa-check"></i>');                                              
+                      else
+                        ev.target.lastChild.insertAdjacentHTML('beforeend', '<i class="fas fa-times"></i>');
+                     break;
+    }
+}
+</script>
+</head>
+<body>
+
+<p class="text-center">Drag and Drop:</p>
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+        <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)" ondragend='what(this)' class="cdiv">
+            <p id="p1" draggable="true" ondragstart="drag(event)">1</p>
+        </div>
+        <div id="div2" ondrop="drop(event)" ondragover="allowDrop(event)" ondragend='what(this)' class="cdiv">
+            <p id="p2" draggable="true" ondragstart="drag(event)">2</p>
+        </div>
+        <div id="div3" ondrop="drop(event)" ondragover="allowDrop(event)" ondragend='what(this)' class="cdiv">
+            <p id="p3" draggable="true" ondragstart="drag(event)">3</p>
+        </div>
+        <div id="div4" ondrop="drop(event)" ondragover="allowDrop(event)" ondragend='what(this)' class="cdiv">
+            <p id="p4" draggable="true" ondragstart="drag(event)">4</p>
+        </div>
+        <div id="div5" ondrop="drop(event)" ondragover="allowDrop(event)" ondragend='what(this)' class="cdiv">
+            <p id="p5" draggable="true" ondragstart="drag(event)" >5</p>
+        </div>
+    </div>
+    <div class="col-sm">
+        <div id="div6" ondrop="drop(event)" ondragover="allowDrop(event)" ondragend='what(this)' class="cdiv">
+            <p id="p6" draggable="true" ondragstart="drag(event)"></p>
+        </div>
+        <div id="div7" ondrop="drop(event)" ondragover="allowDrop(event)" ondragend='what(this)' class="cdiv">
+            <p id="p7" draggable="true" ondragstart="drag(event)"></p>
+        </div>
+        <div id="div8" ondrop="drop(event)" ondragover="allowDrop(event)" ondragend='what(this)' class="cdiv">
+            <p id="p8" draggable="true" ondragstart="drag(event)"></p>
+        </div>
+        <div id="div9" ondrop="drop(event)" ondragover="allowDrop(event)" ondragend='what(this)' class="cdiv">
+            <p id="p9" draggable="true" ondragstart="drag(event)"></p>
+        </div>
+        <div id="div10" ondrop="drop(event)" ondragover="allowDrop(event)" ondragend='what(this)' class="cdiv">
+            <p id="p10" draggable="true" ondragstart="drag(event)"></p>
+        </div>
+    </div>    
+  </div>
+</div>
+
+
+<br>
+
+
+</body>
+</html>
